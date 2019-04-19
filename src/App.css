@@ -2,6 +2,11 @@
   color: #000;
 } 
 
+.App div {
+  float: left;
+  margin-right: 100px;
+}
+
 img {
-  width: 100px;
+  width: 200px;
 }
