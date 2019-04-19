@@ -13,32 +13,10 @@ class App extends Component {
   }
 
   componentDidMount(){
-    setTimeout(() => {
-      this.setState({
-        movies: [
-          {
-            title: "title01",
-            poster: "http://img.hani.co.kr/imgdb/resize/2018/0313/00500561_20180313.JPG"
-          },
-          {
-            title: "title02",
-            poster: "http://pet.chosun.com/images/news/healthchosun_pet_201802/20180205193238_1635_4749_2414.jpg"
-          },
-          {
-            title: "title03",
-            poster: "http://www.hanion.co.kr/news/photo/201705/5146_17620_2457.jpg"
-          },
-          {
-            title: "title04",
-            poster: "https://image-notepet.akamaized.net/resize/620x-/seimage/20190318%2F0ef3f7d3dc9be4c89fab5ab5cd2fcbce.jpg"
-          },
-          {
-            title: "title05",
-            poster: "https://dispatch.cdnser.be/wp-content/uploads/2017/10/20171025103736_dm0rex6uiaa5w1t.jpg"
-          }
-        ]
-      })
-    }, 1000);
+    fetch('https://yts.am/api/v2/list_movies.json?sort_by=rating')
+    .then(potato => potato.json())
+    .then(json => console.log(json))
+    .catch(err => console.log(err))
   }
 
   // 규칙 : 직접만든 함수는 앞에 _를 붙이자.
@@ -58,6 +36,5 @@ class App extends Component {
     );
   }
 }
-
 
 export default App;
